@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+
+        >
+
+   <!-- <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_product"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_aboutproduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:elevation="2dp"
+            >
+
+        </android.support.v7.widget.Toolbar>
+
+   </android.support.design.widget.AppBarLayout>-->
+
+      <android.support.design.widget.AppBarLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/view_aboutproduct"
+          app:theme="@style/AppTheme"
+          android:fitsSystemWindows="true"
+
+          >
+
+
+          <!--app:layout_collapseMode="pin"
+          android:background="@android:color/transparent"
+          android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+
+          <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrey"
+            app:contentScrim="?attr/colorPrimaryDark"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:theme="@style/AppTheme"
+
+
+            >
+
+              <!--
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+             app:expandedTitleMarginBottom="32dp"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+              -->
+              <android.support.v7.widget.Toolbar
+                  android:id="@+id/toolbar_aboutproduct"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:elevation="2dp"
+                  android:fitsSystemWindows="true"
+                  android:background="?attr/colorPrimary"
+                  app:popupTheme="@style/AppTheme.PopupOverlay"
+                  android:layout_marginTop="20dp"
+                  android:minHeight="60dp"
+                  app:layout_collapseMode="parallax"
+
+                  >
+                 <!-- app:popupTheme="@style/AppTheme.PopupOverlay"
+                  android:background="?attr/colorPrimary"
+                 android:background="@android:color/transparent"-->
+              </android.support.v7.widget.Toolbar>
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_marginTop="76dp"
+
+                  >
+              <ImageView
+
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/product_desc_image"
+                  android:src="@drawable/glim"
+                  android:fitsSystemWindows="true"
+                  android:scaleType="centerCrop"
+                  android:layout_gravity="fill_vertical"
+                  app:layout_collapseMode="pin"
+                  app:layout_scrollFlags="scroll|snap"
+
+                  />
+              </LinearLayout>
+              <!--transparent when open when collapsed back color
+                               -->
+
+              <!-- app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+               -->
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+   </android.support.design.widget.AppBarLayout>
+
+
+
+
+   <android.support.v4.widget.NestedScrollView
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools"
+
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:fillViewport="true"
+       android:layout_gravity="fill_vertical"
+       android:paddingBottom="16dp"
+       android:layout_marginBottom="50dp"
+       app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+      >
+
+     <!--android:layout_marginBottom="50dp"
+       app:layout_behavior="com.indazzlenew.products.FixedScrollingViewBehavior"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior"
+       <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+          android:orientation="vertical">
+         -->
+         <!-- <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:fillViewport="true"
+           android:layout_weight="1"
+           >
+        -->
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:weightSum="1"
+           >
+           <include layout="@layout/content_scroll_desc"></include>
+
+       </LinearLayout>
+    <!--android:layout_height="wrap_content" app:layout_behavior="com.indazzlenew.Products.FixedScrollingViewBehavior"-->
+
+   </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/buttons_ly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="fill_vertical"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        >
+
+        <!--android:gravity="fill_vertical"
+         android:gravity="center"
+        android:layout_alignParentBottom="true"-->
+        <Button
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:background="#546E7A"
+            />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvseparator1"
+            android:layout_gravity="center"
+            android:foregroundGravity="fill_horizontal"
+            android:gravity="fill_horizontal"
+            android:background="#9E9E9E"
+            />
+        <Button
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            android:text="ADD TO BAG"
+            android:layout_gravity="fill_vertical"
+            android:background="#546E7A"
+            />
+    </LinearLayout>
+
+
+  </android.support.design.widget.CoordinatorLayout>
+

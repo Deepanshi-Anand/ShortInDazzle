@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/view">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_login"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:elevation="2dp"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+   <android.support.v7.widget.CardView
+       xmlns:card_view="http://schemas.android.com/apk/res-auto"
+       android:id="@+id/card_view"
+       android:layout_gravity="center"
+       android:layout_width="350dp"
+       android:layout_height="300dp"
+       android:gravity="center"
+       android:layout_marginTop="20dp"
+       card_view:cardBackgroundColor="@color/colorGrey"
+       card_view:cardCornerRadius="5dp"
+       card_view:cardElevation="4dp"
+     >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           >
+
+           <android.support.design.widget.TextInputLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+             <EditText
+               android:id="@+id/fname_sign"
+               android:layout_width="250dp"
+               android:layout_height="wrap_content"
+               android:hint="First Name"
+                android:layout_gravity="center"
+               android:layout_marginTop="10dp"
+               android:ellipsize="start"
+                 android:singleLine="true"
+               android:focusable="true"
+               android:textSize="13sp"
+
+               android:layout_alignParentLeft="true"
+               android:layout_alignParentStart="true"
+               android:layout_alignParentRight="true"
+               android:layout_alignParentEnd="true"
+               />
+           </android.support.design.widget.TextInputLayout>
+
+           <android.support.design.widget.TextInputLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+           <EditText
+            android:id="@+id/lname_sign"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            android:ellipsize="start"
+            android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:singleLine="true"
+             android:layout_gravity="center"
+            android:textSize="13sp"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+           </android.support.design.widget.TextInputLayout>
+
+           <android.support.design.widget.TextInputLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+          <EditText
+          android:id="@+id/email_sign"
+          android:layout_width="250dp"
+          android:layout_height="wrap_content"
+          android:hint="Email"
+          android:layout_marginTop="10dp"
+          android:layout_gravity="center"
+              android:singleLine="true"
+          android:ellipsize="start"
+          android:focusable="true"
+          android:textSize="13sp"
+
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentEnd="true"
+          />
+           </android.support.design.widget.TextInputLayout>
+           <android.support.design.widget.TextInputLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+           <EditText
+            android:id="@+id/pwd_sign"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:ellipsize="start"
+            android:layout_marginTop="10dp"
+               android:singleLine="true"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:textSize="13sp"
+            android:inputType="textPassword"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+           />
+            </android.support.design.widget.TextInputLayout>
+
+           <android.support.design.widget.TextInputLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+          <EditText
+            android:id="@+id/mobile_sign"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Mobile No."
+            android:layout_marginTop="10dp"
+            android:ellipsize="start"
+              android:singleLine="true"
+            android:focusable="true"
+              android:layout_gravity="center"
+            android:textSize="13sp"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+           </android.support.design.widget.TextInputLayout>
+
+         </LinearLayout>
+      </android.support.v7.widget.CardView>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:gravity="center"
+          android:padding="2dp"
+          android:layout_marginTop="40dp"
+          android:weightSum="1">
+
+           <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="SIGN UP"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.21"
+            />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
