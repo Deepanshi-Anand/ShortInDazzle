@@ -1,13 +1,19 @@
 package com.indazzlenew.products;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.indazzlenew.main.ShoppingBag;
 import com.indazzlenew.R;
@@ -18,15 +24,22 @@ import com.indazzlenew.R;
 public class AboutProduct extends AppCompatActivity {
 
 
+    Context context;
+    Toolbar toolbar;
+    ImageView imgAboutProduct;
+    TextView tvPrice,tvAbout,tvMore;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.product_desc);
+        setContentView(R.layout.product_description);
 
-
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_aboutproduct);
+        imgAboutProduct=(ImageView)findViewById(R.id.product_desc_image);
+        tvPrice=(TextView)findViewById(R.id.tvproduct_desc_price);
+        tvAbout=(TextView)findViewById(R.id.tvproduct_desc_about);
+        tvMore=(TextView)findViewById(R.id.tvproduct_desc_moreinfo);
+        toolbar= (Toolbar) findViewById(R.id.toolbar_aboutproduct);
         setSupportActionBar(toolbar);
         if (toolbar != null) {
             assert getSupportActionBar() != null;
@@ -36,11 +49,31 @@ public class AboutProduct extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
          }
 
+        String ProductName;
+        int ProdImage;
+        String Prodprice;
+        //Bundle savedInstanceState;
+        Intent intent=getIntent();
+        savedInstanceState=intent.getExtras();
+         /*if(intent.hasExtra("name"))
+         {
+         */
+        // String ProductName=intent.getStringExtra("name");
+        ProductName=savedInstanceState.getString("name");
+        //ProdImage=intent.getIntExtra("productImage",imgAboutProduct.getId());
+        ProdImage=intent.getIntExtra("productImg",imgAboutProduct.getId());
+        Prodprice=intent.getStringExtra("price");
+        //}
+//        imgAboutProduct.setImageResource(ProdImage);
+        tvPrice.setText(Prodprice);
+        tvAbout.setText(ProductName);
+
     }
 
     //Constructor
     public AboutProduct()
     {
+
     }
 
  @Override

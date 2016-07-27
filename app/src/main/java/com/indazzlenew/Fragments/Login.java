@@ -71,8 +71,6 @@ public class Login extends Fragment implements View.OnClickListener {
         pwd = (EditText) v.findViewById(R.id.edtPassword);
 
         //user_info = getSharedPreferences("userinfo", 0);
-
-
         email = ((EditText) v.findViewById(R.id.edtEmail)).getText().toString();
         // pwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         //pwd.setTextColor(Color.BLUE);
@@ -119,9 +117,9 @@ public class Login extends Fragment implements View.OnClickListener {
                 Intent k = new Intent(getApplicationContext(), i);
                 startActivity(k);
                 */
-                validateEmail();
-                validatePassword();
-                pd.show();
+                validateDetail();
+
+               // pd.show();
           ///*
                 String url = "http:///login.php";
           ///*
@@ -130,7 +128,7 @@ public class Login extends Fragment implements View.OnClickListener {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                pd.hide();
+                               // pd.hide();
                                 Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
                                 // SharedPreferences.Editor edit=user_info.edit();
                                 // edit.putString("response",response);
@@ -144,7 +142,7 @@ public class Login extends Fragment implements View.OnClickListener {
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 //You can handle error here if you want
-                                pd.hide();
+                                //pd.hide();
                                 Toast.makeText(getActivity(), "It's not working", Toast.LENGTH_LONG).show();
                             }
                         }) {
@@ -185,50 +183,49 @@ public class Login extends Fragment implements View.OnClickListener {
 
 
 
-    public boolean validateEmail(){
+    public boolean validateDetail(){
         String stringDisplay;
         email = emailValidate.getEditableText().toString().trim();
-        if(email.matches(emailPattern)&&email.length()!=0)
+        if(email.matches(emailPattern)&&email.length()!=0&&password!=null&&password.length()>=6)
         {
             result=true;
         }
-        else if(email.length()==0)
+
+        if(email.length()==0)
         {
             result =false;
-            stringDisplay="Email:Required Field";
-            Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
+            emailValidate.setError("Email:Required Field");
+            //stringDisplay="Email:Required Field";
+            //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
         }
-        else {
+        else if(!email.matches(emailPattern)){
             result = false;
-            stringDisplay = "Invalid Email";
-            Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
+            emailValidate.setError("Invalid Email");
+           // stringDisplay = "Invalid Email";
+            //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
         }
 
-        return result;
-    }
 
-    public boolean validatePassword()
-    {
-        String stringDisplay;
-        if(password!=null&&password.length()>=6)
-        {
-            result=true;
-        }
-        if(password!=null&&password.length()<6)
+        if(password!=null&&pwd.getText().length()<6)
         {
             result =false;
-            stringDisplay="Password:Password is too short(minimum is 6 characters)";
-            Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
+            pwd.setError("Password:Password is too short(minimum is 6 characters)");
+            //stringDisplay="Password:Password is too short(minimum is 6 characters)";
+            //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
 
         }
         else if(password==null)
         {
             result=false;
-            stringDisplay="Password :Required field";
-            Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
+            pwd.setError("Password :Required field");
+            //stringDisplay="Password :Required field";
+            //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
         }
+
         return result;
     }
+
+
 }
 
 

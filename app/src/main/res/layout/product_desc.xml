@@ -86,10 +86,9 @@
 
                   >
               <ImageView
-
+                  android:id="@+id/product_desc_image"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:id="@+id/product_desc_image"
                   android:src="@drawable/glim"
                   android:fitsSystemWindows="true"
                   android:scaleType="centerCrop"
@@ -118,7 +117,7 @@
        xmlns:tools="http://schemas.android.com/tools"
 
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
+       android:layout_height="match_parent"
        android:fillViewport="true"
        android:layout_gravity="fill_vertical"
        android:paddingBottom="16dp"
@@ -128,6 +127,7 @@
       >
 
      <!--android:layout_marginBottom="50dp"
+         android:height="wrap_content"
        app:layout_behavior="com.indazzlenew.products.FixedScrollingViewBehavior"
       app:layout_behavior="@string/appbar_scrolling_view_behavior"
        <LinearLayout

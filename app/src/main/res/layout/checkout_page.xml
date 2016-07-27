@@ -233,6 +233,7 @@
             </LinearLayout>
             <!--android:layout_height="wrap_content" app:layout_behavior="com.indazzlenew.Products.FixedScrollingViewBehavior"-->
 
+
         </android.support.v4.widget.NestedScrollView>
 
 

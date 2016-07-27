@@ -11,6 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!--meta-data can place it here as a child of application for all activities to have it or inside NavDrawerMain activity-->
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".main.SearchableActivity">
+        </meta-data>
+
+
         <activity android:name=".main.MainActivity">
         </activity>
 
@@ -21,24 +28,41 @@
             android:name=".main.NavDrawerMain"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
+
+
+
+          </activity>
+        <!--
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+         -->
 
-          </activity>
-
-
+        <activity android:name=".splash.IntroActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
 
         <activity android:name=".main.SearchableActivity" >
                 <intent-filter>
                     <action android:name="android.intent.action.SEARCH" />
                 </intent-filter>
-                <meta-data android:name="android.app.searchable"
-                    android:resource="@xml/searchable"/>
-             </activity>
+            <intent-filter>
+               <action android:name="android.intent.action.SEARCH"></action>
+            </intent-filter>
+          <!--specify here for search operation mentioning-->
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"
+                />
+
+        </activity>
 
         <activity
             android:name=".main.EntryActivity"
@@ -48,7 +72,7 @@
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".main.NavDrawerMain" />>
+                android:value=".main.NavDrawerMain" />
 
         </activity>
         <activity
@@ -58,24 +82,23 @@
             android:parentActivityName=".main.NavDrawerMain">
             </activity>
         <activity
+            android:name=".main.Contact"
+            android:label="@string/title_activity_contact"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".main.NavDrawerMain">
+        </activity>
+        <activity
             android:name=".main.ShoppingBag"
             android:label="@string/title_activity_shoppingbag"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".main.NavDrawerMain">
-
-
-
         </activity>
         <activity
             android:name=".products.AboutProduct"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".main.NavDrawerMain">
 
-
-
         </activity>
-
-
 
         <activity
             android:name=".user.Profile"
@@ -83,12 +106,27 @@
 
            >
         </activity>
-          <!--
+        <!-- iF USING XML searchable and search configuration-->
+        <activity android:name="main.SearchableActivity" >
             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-
-             <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>
+        <!--<activity android:name=".main.Search ... >
+                    // enable the search dialog to send searches to SearchableActivity
+        <meta-data android:name="android.app.default_searchable"
+            android:value=".SearchableActivity" />
+       </activity>
+       -->
+
+    <!--
+      <intent-filter>
+       <action android:name="android.intent.action.MAIN" />
+
+       <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
 
 -->
         <!--android:parentActivityName=".main.NavDrawerMain"-->

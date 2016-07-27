@@ -5,7 +5,18 @@ package com.indazzlenew.recyclerView;
  */
 
 //public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ProductViewHolder> {
-   /*     private ArrayList<String> mDataset;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.indazzlenew.R;
+
+import java.util.ArrayList;
+/*
+private ArrayList<String> mDataset;
 
         // Provide a reference to the views for each data item
         // Complex data items may need more than one view per item, and
@@ -41,7 +52,7 @@ package com.indazzlenew.recyclerView;
 
         // Create new views (invoked by the layout manager)
         @Override
-        public MyAdapter.ProductViewHolder onCreateViewHolder(ViewGroup parent,
+        public ProductViewHolder onCreateViewHolder(ViewGroup parent,
                                                        int viewType) {
             // create a new view
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.rowproducts, parent, false);
@@ -74,5 +85,5 @@ package com.indazzlenew.recyclerView;
             return mDataset.size();
         }
 
-*/
+        */
 //}

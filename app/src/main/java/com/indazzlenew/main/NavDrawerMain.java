@@ -1,14 +1,19 @@
 package com.indazzlenew.main;
 
+import android.app.SearchManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -23,6 +28,9 @@ import android.widget.TextView;
 
 import com.indazzlenew.Fragments.HomeMain;
 import com.indazzlenew.R;
+
+import java.util.Hashtable;
+import java.util.Map;
 
 public class NavDrawerMain extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,SearchView.OnQueryTextListener,MenuItem.OnMenuItemClickListener,View.OnClickListener{
@@ -74,6 +82,26 @@ public class NavDrawerMain extends AppCompatActivity
           nav_user=(TextView)hView.findViewById(R.id.btn_nav_entry);
           nav_user.setOnClickListener(this);
 
+          /*
+
+          Map<String,String> map=new Hashtable<String,String>();
+          map.put("hey","hello");
+          map.put("hi1","hello");
+          map.put("hi2","hello");
+          map.put("hi3","hello");
+          String result="No Result";
+          Intent searchIntent=getIntent();
+          if(Intent.ACTION_SEARCH.equals(searchIntent.getAction()))
+          {
+              String query=searchIntent.getStringExtra(SearchManager.QUERY);
+              Log.i("search","query="+query);
+              String str=map.get(query);
+
+
+          }
+        */
+          //onSearchRequested();
+
 
     }
 
@@ -103,14 +131,43 @@ public class NavDrawerMain extends AppCompatActivity
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.nav_drawer, menu);
 
+
             MenuItem searchItem = menu.findItem(R.id.action_search);
+              SearchManager searchManager =(SearchManager) getSystemService(Context.SEARCH_SERVICE);
             SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
             searchView.setIconifiedByDefault(false);
+             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setOnQueryTextListener(this);
+
+        /* searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onSearchRequested();
+            }
+
+        });
+        */
+       // for appearing of search dialog
+        // onSearchRequested();
 
         if (searchView != null) {
-                searchView.setOnQueryTextListener(this);
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        return false;
+                    }
+                });
                 //Log.d(TAG,"SearchView not null");
             }
+
+        //SearchManager searchManager1 =(SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        //ComponentName component=new ComponentName(this,SearchableActivity.class);
+        //searchView.setSearchableInfo(searchManager1.getSearchableInfo(component));
 
         //     MenuItem bagItem=menu.findItem(R.id.action_Bag);
        // bagItem.getItemId()  //onOptionsItemSelected();
@@ -134,6 +191,12 @@ public class NavDrawerMain extends AppCompatActivity
                 Intent intent=new Intent(this,ShoppingBag.class);
                 startActivity(intent);
         }
+
+        if(item.getTitle().equals("Search"))
+        {
+            return onSearchRequested();
+        }
+
         //noinspection SimplifiableIfStatement
         /*if (id == R.id.action_settings) {
             return true;
@@ -180,7 +243,8 @@ public class NavDrawerMain extends AppCompatActivity
 
         }
         else if (id == R.id.nav_contact) {
-
+            Intent intent=new Intent(this,Contact.class);
+            startActivity(intent);
 
         }
 /*
@@ -196,8 +260,10 @@ public class NavDrawerMain extends AppCompatActivity
         return true;
     }
 
-    @Override
+   @Override
     public boolean onQueryTextSubmit(String query) {
+
+       // NavUtils.openSearch(SearchableActivity.this,query);
         return false;
     }
 
@@ -205,6 +271,7 @@ public class NavDrawerMain extends AppCompatActivity
     public boolean onQueryTextChange(String newText) {
         return false;
     }
+
 
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {

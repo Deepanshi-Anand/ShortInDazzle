@@ -1,11 +1,14 @@
 package com.indazzlenew.user;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +16,10 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.*;
@@ -151,4 +156,36 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
                   datePickerDialog.show();
         }
     }
+    /*
+    ProfileImage.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            final Dialog dialog = new Dialog(PersonalDetailsActivity.this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.add_image_dialog);
+            dialog.getWindow().setLayout(width, 200);
+            ImageView camera = (ImageView) dialog.findViewById(R.id.extra_order_history_camera);
+            ImageView sdCard = (ImageView) dialog.findViewById(R.id.extra_order_history_sdcard);
+            camera.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, REQUEST_CAMERA);
+                    dialog.dismiss();
+                }
+            });
+            sdCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intent, SELECT_FILE);
+                    dialog.dismiss();
+                }
+            });
+            dialog.show();
+        }
+    });
+    }
+    */
+
 }

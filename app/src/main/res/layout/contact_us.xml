@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/view_about">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_contact"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:elevation="2dp"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                card_view:cardBackgroundColor="@color/colorLightGreen"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="4dp"
+                android:layout_weight="1.99">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1"
+                    android:layout_marginBottom="10dp"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contact Us:"
+                        android:padding="2dp"
+                        android:textColor="#000"
+                        android:textSize="18dp"
+                        ></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:textSize="16dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Want to know about order status or queries related to a product give us a call or drop a line
+Phone number: 012-3456789.
+Timings ( 8AM - 9PM everyday).
+Address: C-20/1 InDazzle Office,JSSATE STEP "
+                        android:layout_weight="1.09" />
+
+
+
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view3"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="144dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                card_view:cardBackgroundColor="@color/colorLightGreen"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="10dp"
+                    android:padding="8dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="343dp"
+                        android:layout_height="match_parent"
+                        android:textSize="18dp"
+                        android:padding="2dp"
+                        android:textColor="#000"
+                        android:text="Our Details:"
+                        ></TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:padding="2dp"
+                        android:hint="Your Content:" />
+
+
+
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view2"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="144dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                card_view:cardBackgroundColor="@color/colorLightGreen"
+                card_view:cardCornerRadius="5dp"
+                card_view:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="10dp"
+                    android:padding="8dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="343dp"
+                        android:layout_height="match_parent"
+                        android:textSize="18dp"
+                        android:padding="2dp"
+                        android:textColor="#000"
+                        android:text="Call Us:"
+                        ></TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:padding="2dp"
+                        android:hint="Your Content:" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_contact"
+                android:layout_marginTop="10dp"
+                android:text="Still Need Help.Write To Us"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>

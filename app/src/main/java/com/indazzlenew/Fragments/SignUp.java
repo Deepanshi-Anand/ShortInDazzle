@@ -34,10 +34,10 @@ import java.util.Map;
 /**
  * Created by user on 30-06-2016.
  */
-public class SignUp extends Fragment implements View.OnClickListener{
+public class SignUp extends Fragment implements View.OnClickListener {
 
-    EditText emailValidate;
-    String fname,lname,emailSign,mobno,pwdSign;
+    EditText edtFname, edtLname, edtemail, edtPass, edtNo;
+    String fname, lname, emailSign, mobno, pwdSign;
     ProgressDialog pd;
     String emailPattern;
     long pnoi;
@@ -46,28 +46,43 @@ public class SignUp extends Fragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       // return super.onCreateView(inflater, container, savedInstanceState);
-       View v=inflater.inflate(R.layout.signup_page,container,false);
-       emailValidate= (EditText)v.findViewById(R.id.email_sign);
-       fname=((EditText)v.findViewById(R.id.fname_sign)).getText().toString();
-       lname=((EditText)v.findViewById(R.id.lname_sign)).getText().toString();
-       emailSign=((EditText)v.findViewById(R.id.email_sign)).getText().toString();
-       mobno=((EditText)v.findViewById(R.id.mobile_sign)).getText().toString();
-       pwdSign=((EditText)v.findViewById(R.id.pwd_sign)).getText().toString();
+        // return super.onCreateView(inflater, container, savedInstanceState);
+        View v = inflater.inflate(R.layout.signup_page, container, false);
+        edtemail = (EditText) v.findViewById(R.id.email_sign);
+        edtPass = (EditText) v.findViewById(R.id.pwd_sign);
+        edtFname = (EditText) v.findViewById(R.id.fname_sign);
+        edtLname = (EditText) v.findViewById(R.id.lname_sign);
+        edtNo = (EditText) v.findViewById(R.id.mobile_sign);
 
-       v.findViewById(R.id.btnSignUp).setOnClickListener(this);
+        fname = (edtFname).getText().toString();
+        lname = (edtLname).getText().toString();
+        emailSign = (edtemail).getText().toString();
+        mobno = (edtNo).getText().toString();
+        pwdSign = (edtPass).getText().toString();
+
+/*
+        fname = ((EditText) v.findViewById(R.id.fname_sign)).getText().toString();
+        lname = ((EditText) v.findViewById(R.id.lname_sign)).getText().toString();
+        emailSign = ((EditText) v.findViewById(R.id.email_sign)).getText().toString();
+        mobno = ((EditText) v.findViewById(R.id.mobile_sign)).getText().toString();
+        pwdSign = ((EditText) v.findViewById(R.id.pwd_sign)).getText().toString();
+*/
+        v.findViewById(R.id.btnSignUp).setOnClickListener(this);
 
         return v;
     }
 
 
-
     @Override
     public void onClick(View view) {
 
-        switch(view.getId())
-        {
+
+
+        switch (view.getId()) {
             case R.id.btnSignUp:
+                boolean result;
+                validateUserDetails();
+                //result= validateUserDetails();
 
                 //Class i = null;
                 //try {
@@ -80,47 +95,55 @@ public class SignUp extends Fragment implements View.OnClickListener{
                 //break;
 
 
-            pd.show();
-           // fname = ((EditText) findViewById(R.id.fname_sign)).getText().toString();
-            //lname = ((EditText) findViewById(R.id.lname_sign)).getText().toString();
-            //username = ((EditText) findViewById(R.id.sign_email)).getText().toString();
+                //    pd.show();
+                // fname = ((EditText) findViewById(R.id.fname_sign)).getText().toString();
+                //lname = ((EditText) findViewById(R.id.lname_sign)).getText().toString();
+                //username = ((EditText) findViewById(R.id.sign_email)).getText().toString();
 
-            //sp = getSharedPreferences("user", 0);
-            //SharedPreferences.Editor editor = sp.edit();
-             //editor.putString("fname",fname);
-             //editor.putString("lname",lname);
-            //editor.commit();
+                //sp = getSharedPreferences("user", 0);
+                //SharedPreferences.Editor editor = sp.edit();
+                //editor.putString("fname",fname);
+                //editor.putString("lname",lname);
+                //editor.commit();
 
-            //emailSign = ((EditText) findViewById(R.id.email_sign)).getText().toString();
-            // pwdSign = ((EditText) findViewById(R.id.pwd_sign)).getText().toString();
-            //confirmpass = ((EditText) findViewById(R.id.edit_signup_confirmpass)).getText().toString();
-            ///*if(!password.equals(confirmpass)){
-             //  showerror();
-            //break; }
+                //emailSign = ((EditText) findViewById(R.id.email_sign)).getText().toString();
+                // pwdSign = ((EditText) findViewById(R.id.pwd_sign)).getText().toString();
+                //confirmpass = ((EditText) findViewById(R.id.edit_signup_confirmpass)).getText().toString();
+                ///*if(!password.equals(confirmpass)){
+                //  showerror();
+                //break; }
 
-            // score=Long.parseLong(((EditText)findViewById(R.id.email_sign)).getText().toString());
-            try {
-               // mobno = ((EditText) findViewById(R.id.mobile_sign)).getText().toString();
+                //try {
+                //   validateUserDetails();
+                //}
+                //catch(Exception e)
+                //{
+                // e.printStackTrace();
+                //}
+                // score=Long.parseLong(((EditText)findViewById(R.id.email_sign)).getText().toString());
+            /*
+                try {
+                    // mobno = ((EditText) findViewById(R.id.mobile_sign)).getText().toString();
 
-                if (mobno.length() != 10) {
-                    pd.hide();
-                    Toast.makeText(getActivity(), "Incorrect Mobile number length", Toast.LENGTH_SHORT).show();
+                    if (mobno.length() != 10) {
+                        //pd.hide();
+                        Toast.makeText(getActivity(), "Incorrect Mobile number length", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                    pnoi = Long.parseLong(mobno);
+
+                } catch (NumberFormatException n) {
+                    //pd.hide();
+                    Toast.makeText(getActivity(), "Incorrect Mobile number", Toast.LENGTH_SHORT).show();
                     break;
-                }
-                pnoi = Long.parseLong(mobno);
+             */
 
-            } catch (NumberFormatException n) {
-                pd.hide();
-                Toast.makeText(getActivity(), "Incorrect Mobile number", Toast.LENGTH_SHORT).show();
-                break;
+                //RequestQueue queue = Volley.newRequestQueue(this);}
 
+                // mobno=((EditText)findViewById(R.id.mobile_Sign)).getText().toString();
 
-                //RequestQueue queue = Volley.newRequestQueue(this);
-            }
-
-           // mobno=((EditText)findViewById(R.id.mobile_Sign)).getText().toString();
-
-           String url = "http://.php";
+                //if (result == true) {
+                    String url = "http://.php";
 
 
               /*
@@ -185,174 +208,166 @@ public class SignUp extends Fragment implements View.OnClickListener{
         }
 
         */
-            //Creating a string request
+                    //Creating a string request
 
 
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    //pd.hide();
+                                    Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
+                                    Class i = null;
+                                    try {
+                                        i = Class.forName("com.indazzle.main.Login");
+                                    } catch (ClassNotFoundException e) {
+                                        e.printStackTrace();
+                                    }
+                                    Intent k = new Intent(getActivity(), i);
+                                    startActivity(k);
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    //You can handle error here if you want
+                                    //pd.hide();
 
-
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                    new Response.Listener<String>() {
+                                    Toast.makeText(getActivity(), "its not working" + error.toString(), Toast.LENGTH_LONG).show();
+                                }
+                            }) {
                         @Override
-                        public void onResponse(String response) {
-                            pd.hide();
-                            Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
-                            Class i = null;
-                            try {
-                                i = Class.forName("com.indazzle.main.Login");
-                            } catch (ClassNotFoundException e) {
-                                e.printStackTrace();
-                            }
-                            Intent k = new Intent(getActivity(), i);
-                            startActivity(k);
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            //You can handle error here if you want
-                            pd.hide();
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            //Adding parameters to request
+                            params.put("fname", fname);
+                            params.put("lname", lname);
+                            params.put("email", emailSign);
+                            params.put("password", pwdSign);
+                            params.put("mobile", mobno);
+                            //params.put("username", username);
 
-                            Toast.makeText(getActivity(), "its not working"+error.toString(), Toast.LENGTH_LONG).show();
+                            //returning parameter
+                            return params;
                         }
-                    }) {
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<>();
-                    //Adding parameters to request
-                    params.put("fname",fname);
-                    params.put("lname",lname);
-                    params.put("email", emailSign);
-                    params.put("password", pwdSign);
-                    params.put("mobile",mobno);
-                    //params.put("username", username);
+                    };
 
-                    //returning parameter
-                    return params;
+                    //Adding the string request to the queue
+                    RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+                    requestQueue.add(stringRequest);
+
+
+                    int socketTimeout = 20000;//20 seconds - change to what you want
+                    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+                    stringRequest.setRetryPolicy(policy);
+                    break;
                 }
-            };
 
-            //Adding the string request to the queue
-            RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-            requestQueue.add(stringRequest);
+      //  }
+        // private void showerror() {
+        //    pd.hide();
+        //    Toast.makeText(SignUp.this,"password mismatch",Toast.LENGTH_LONG).show();
 
-
-            int socketTimeout = 20000;//20 seconds - change to what you want
-            RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-            stringRequest.setRetryPolicy(policy);
-            break;
-        }
+        // }
 
 
-
-    // private void showerror() {
-       //    pd.hide();
-       //    Toast.makeText(SignUp.this,"password mismatch",Toast.LENGTH_LONG).show();
-
-      // }
-
-
-   // */
-
-        }
-
-    public void validateUserDetails()
-    {
-        String stringDisplay;
-        String selector;
-        boolean result;
-        emailSign = emailValidate.getEditableText().toString().trim();
-        emailPattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-
-          if(emailSign.length()!=0)
-         {
-           if(!(emailSign.matches(emailPattern)))
-           {
-            result=false;
-            stringDisplay="Invalid Email";
-            //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
-           }
-            else
-            {
-               result=true;
-            }
-        }
-         else
-        {
-            result =false;
-            stringDisplay="Email:Required Field";
-           // Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
-        }
-
-
-
-        if(pwdSign!=null)
-        {
-            if(pwdSign.length()<6)
-            {
-                result =false;
-                stringDisplay="Password:Password is too short(minimum is 6 characters)";
-                //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        else
-        {
-            result=false;
-            stringDisplay="Password :Required field";
-            //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
-        }
-
-        if(fname.length()!=0)
-        {
-            if(fname.length()>100)
-            {
-                result=false;
-                stringDisplay="First Name exceeded Limit";
-               // Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
-            }
-        }
-        else
-        {
-            result=false;
-            stringDisplay="Name :Required field";
-            //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
-        }
-
-        if(lname.length()!=0)
-        {
-            if(lname.length()>100)
-            {
-                result=false;
-                stringDisplay="Last Name exceeded Limit";
-                //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
-            }
-        }
-        else
-        {
-            result=false;
-            stringDisplay="Name :Required field";
-            //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
-        }
-
-        if(mobno.length()!=0)
-        {
-            String mobilePattern= "^[7-9]\\d{9}$";
-            if(!mobno.matches(mobilePattern))
-            {
-                result=false;
-                stringDisplay="Invalid Mobile No.";
-                //Toast.makeText(getActivity(),stringDisplay,Toast.LENGTH_SHORT).show();
-            }
-        }
-        else
-        {
-            result=false;
-            stringDisplay="Mobile No.:Required field";
-        }
-
+        // */
 
     }
 
+    public boolean validateUserDetails() {
+        String stringDisplay;
+        String selector;
+        boolean result;
+        emailSign = edtemail.getEditableText().toString().trim();
+        emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9]+)*(\\.[A-Za-z]{2,})$";
+        if (edtFname.getText().length() != 0) {
+            if (edtFname.getText().length() > 100) {
+                result = false;
+                edtFname.setError("First Name exceeded Limit");
+               // stringDisplay = "First Name exceeded Limit";
+                //Toast.makeText(getActivity(), stringDisplay, Toast.LENGTH_SHORT).show();
+                return result;
+            }
+        } else if (edtLname.getText().length() != 0) {
+            if (edtLname.getText().length() > 100) {
+                result = false;
+                edtLname.setError("Last Name exceeded Limit");
+               // stringDisplay = "Last Name exceeded Limit";
+                //Toast.makeText(getActivity(), stringDisplay, Toast.LENGTH_SHORT).show();
+                return result;
+            }
+        } else if ((!(edtemail.getText().length() == 0)) && (!emailSign.matches(emailPattern))) {
+            result = false;
+            edtemail.setError("Invalid Email");
+            return result;
+        }
+        else if (edtPass.getText().length()!=0)
+        {
 
+            if ((edtPass.getText().length())<=5) {
+                result = false;
+                edtPass.setError("Password:Password is too short(minimum is 6 characters)");
+                return result;
+            }
+        }
+         else if (edtNo.getText().length() != 0) {
+            String mobilePattern = "^[7-9]\\d{9}$";
+            if (!mobno.matches(mobilePattern)) {
+                result = false;
+                edtNo.setError("Invalid Mobile No.");
+                //stringDisplay = "Invalid Mobile No.";
+                //Toast.makeText(getActivity(), stringDisplay, Toast.LENGTH_SHORT).show();
+                return result;
+            }
+        }
+
+
+         if (edtFname.getText().length() <= 0) {
+            result = false;
+             edtFname.setError("First Name :Required field");
+            //stringDisplay = "First Name :Required field";
+            //Toast.makeText(getActivity(), stringDisplay, Toast.LENGTH_SHORT).show();
+            return result;
+        } else if (edtLname.getText().length() == 0) {
+            result = false;
+             edtLname.setError("Last Name :Required field");
+            //stringDisplay = "Last Name :Required field";
+            //Toast.makeText(getActivity(), stringDisplay, Toast.LENGTH_SHORT).show();
+            return result;
+        }
+         else if (edtemail.getText().length() == 0) {
+            result = false;
+             edtemail.setError("Email:Required Field");
+            //stringDisplay = "Email:Required Field";
+            //Toast.makeText(getActivity(), stringDisplay, Toast.LENGTH_SHORT).show();
+        } else if (pwdSign == null) {
+            result = false;
+             edtPass.setError("Password :Required field");
+            //stringDisplay = "Password :Required field";
+            //Toast.makeText(getActivity(), stringDisplay, Toast.LENGTH_SHORT).show();
+            return result;
+        } else if (edtNo.getText().length() == 0) {
+            result = false;
+             edtNo.setError("Mobile No.:Required field");
+            //stringDisplay = "Mobile No.:Required field";
+            //Toast.makeText(getActivity(), stringDisplay, Toast.LENGTH_SHORT).show();
+            return result;
+          }
+
+
+        result=true;
+        return result;
+
+
+    }
 }
+
+
+
+
+
+
+
+
+
